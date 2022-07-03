@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(216, 211, 211);
+}
+
+.menu{
+    width: 100%;
+    height: 40px;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 1rem;
+}
+
+.style_menu{
+    display: flex;    
+}
+
+.style_menu li{
+    list-style: none;
+    background-color: antiquewhite;
+    margin: .1rem;
+    border-radius: 8px;
+}
+
+.style_menu li:hover{
+    background-color: rgb(145, 223, 130);
+}
+
+.style_menu a{
+    margin: 1rem;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.contente {
+    width: 98%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 2rem;
+    margin: 0.1rem auto;
+    padding: 1rem;
+}
+
+.content_space h2{
+    margin-top: 2rem;
+    margin-bottom: 8rem;
+}
+
+.content_space .info{
+    color: brown;
+}
+
+.pergunta p{   
+    background-color: rgb(218, 70, 26); 
+    margin-top: 8rem; 
+    margin: 0 auto;  
+}
+
+ .resposta p{   
+    background-color: rgb(29, 238, 64); 
+    margin-top: 8rem; 
+    margin: 0 auto;  
+}
+
+.desafio_1{ border: 4px solid rgb(22, 212, 22);}
+.desafio_2{ border: 4px solid rgb(62, 36, 209);}
+.desafio_3{ border: 4px solid rgb(219, 30, 178);}
+.desafio_4{ border: 4px solid rgb(223, 29, 29);}
+

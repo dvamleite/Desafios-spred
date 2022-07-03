@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução Prática ao TypeScript</title>
+
+   <link rel="stylesheet" href="./index.css">
+    
+</head>
+<body>
+
+   <header class="menu">
+    <ul class="style_menu">
+        <li><a href="#desafio_01">Desafio 01</a></li>
+        <li><a href="#desafio_02">Desafio 02</a></li>
+        <li><a href="#desafio_03">Desafio 03</a></li>
+        <li><a href="#desafio_04">Desafio 04</a></li>
+    </ul>
+   </header>
+
+    <section class="desafio_1 contente">
+        <span class="content_space">
+            <h2>Como podemos rodar isso em um arquivo .ts sem causar erros?</h2> 
+      <div class="pergunta">
+        <p>         
+            <br>let employee = {};<br>
+            employee.code = 10;<br>
+            employee.name = "John";      
+       </p>
+      </div>
+        </span>
+
+        <span>
+            <h2>Resposta </h2> 
+       <div class="resposta">
+        <p>         
+            const funcionario2: {codigo: number, nome: string} = {<br>
+                codigo: 10,<br>
+                nome: 'joao'<br>
+            }   
+           </p>
+       </div>
+        </span>
+
+    </section>
+
+    <section class="desafio_2 contente">
+
+       <span class="content_space">
+
+        <h2> Como podemos melhorar o esse código usando TS?</h2>
+
+           <div class="pergunta">
+            <p>
+                let pessoa1 = {};
+                    pessoa1.nome = "maria";
+                    pessoa1.idade = 29;
+                    pessoa1.profissao = "atriz"
+
+            </p>
+               
+            <p>
+                let pessoa2 = {}
+                    pessoa2.nome = "roberto";
+                    pessoa2.idade = 19;
+                    pessoa2.profissao = "Padeiro";
+            </p>
+
+               <p>
+                    let pessoa3 = {
+                        nome: "laura",
+                        idade: "32",
+                        profissao: "Atriz"
+                };
+               </p>
+
+               <p>
+                    let pessoa4 = {
+                        nome = "carlos",
+                        idade = 19,
+                        profissao = "padeiro"
+                }
+               </p>
+           </div>
+       </span>
+
+       <h2>Resposta</h2> 
+
+       <span>
+           <div class="resposta">
+            <p>
+                enum Trabalho {
+                    Atriz,
+                    Padeiro
+                }
+
+            </p>
+               
+            <p>
+                type Humano = {
+                    nome: string,
+                    idade: number,
+                    profissao: Trabalho
+                }
+            </p>
+
+               <p>
+                let pessoa1: Humano = {
+                    nome: 'maria',
+                    idade: 29,
+                    profissao: Trabalho.Atriz
+                };
+                
+               </p>
+
+               <p>
+                let pessoa2: Humano = {
+                    nome: 'roberto',
+                    idade: 19,
+                    profissao: Trabalho.Padeiro
+                };
+               </p>
+
+               <p>
+                let pessoa3: Humano = {
+                    nome: 'laura',
+                    idade: 32,
+                    profissao: Trabalho.Atriz
+                };
+           </p>
+
+           <p>
+            let pessoa4: Humano = {
+                nome: "carlos",
+                idade: 19,
+                profissao: Trabalho.Padeiro
+            }
+       </p>
+           </div>
+       </span>
+
+    </section>
+
+    <section class="desafio_3 contente">
+
+        <span class="content_space">
+
+           <h2> O código abaixo tem alguns erros e não funciona como deveria. Você pode identificar quais são e corrigi-los em um arquivo TS?</h2>
+
+          <div class="pergunta">
+            <p>
+                let botaoAtualizar = document.getElementById('atualizar-saldo');
+                let botaoLimpar = document.getElementById('limpar-saldo');
+                let soma = document.getElementById('soma');
+                let campoSaldo = document.getElementById('campo-saldo');
+               </p>
+    
+                <p>
+                    campoSaldo.innerHTML = 0
+                </p>
+    
+               <p>
+                function somarAoSaldo(soma) {
+                    campoSaldo.innerHTML += soma;
+                }
+               </p>
+    
+               <p>
+                function limparSaldo() {
+                    campoSaldo.innerHTML = '';
+                }
+               </p>
+    
+               <p>
+                botaoAtualizar.addEventListener('click', function () {
+                    somarAoSaldo(soma.value);
+                });
+               </p>
+    
+               <p>
+                botaoLimpar.addEventListener('click', function () {
+                    limparSaldo();
+                });
+    
+               </p>
+          </div>
+        </span>
+
+        <h2>Resposta</h2>
+
+       <div class="resposta">
+        <p>
+            let botaoAtualizar = document.getElementById('atualizar-saldo');
+            let botaoLimpar = document.getElementById('limpar-saldo');
+            let soma = document.getElementById('soma');
+            let campoSaldo = document.getElementById('campo-saldo');
+           </p>
+
+            <p>
+                campoSaldo.innerHTML = 0
+            </p>
+
+           <p>
+            function somarAoSaldo(soma) {
+                campoSaldo.innerHTML += soma;
+            }
+           </p>
+
+           <p>
+            function limparSaldo() {
+                campoSaldo.innerHTML = '';
+            }
+           </p>
+
+           <p>
+            botaoAtualizar.addEventListener('click', function () {
+                somarAoSaldo(soma.value);
+            });
+           </p>
+
+           <p>
+            botaoLimpar.addEventListener('click', function () {
+                limparSaldo();
+            });
+
+           </p>
+       </div>
+
+
+        <h2>Exemplo Funcionando</h2>
+
+        <h4>Valor a ser adicionado: <input id="soma"> </h4>
+        <button id="atualizar-saldo">Atualizar saldo</button>
+        <button id="limpar-saldo">Limpar seu saldo</button>
+        <h1>"Seu saldo é: " <span id="campo-saldo"></span></h1>
+
+    </section>
+
+    <section class="desafio_4 contente">
+
+        <span class="content_space">
+            <h2>
+                Um desenvolvedor tentou criar um projeto que consome a base de dados de filme do TMDB para criar um organizador de filmes, mas desistiu 
+                pois considerou o seu código inviável. Você consegue usar typescript para organizar esse código e a partir daí aprimorar o que foi feito?
+   
+               <p class="info">
+                A ideia dessa atividade é criar um aplicativo que: 
+                - Busca filmes
+                - Apresenta uma lista com os resultados pesquisados
+                - Permite a criação de listas de filmes e a posterior adição de filmes nela
+               </p>
+   
+                Todas as requisições necessárias para as atividades acima já estão prontas, mas a implementação delas ficou pela metade (não vou dar tudo de graça).
+                Atenção para o listener do botão login-button que devolve o sessionID do usuário
+                É necessário fazer um cadastro no https://www.themoviedb.org/ e seguir a documentação do site para entender como gera uma API key https://developers.themoviedb.org/3/getting-started/introduction
+   
+            </h2>
+           <div class="pergunta">
+            <p>
+                var apiKeys = 'cf0a1af050ad8e486ccb2f04d51309a6';
+                let apiKey;
+                let requestToken;
+                let username;
+                let password;
+                let sessionId;
+                let listId = '7101979';
+    
+                let loginButton = document.getElementById('login-button');
+                let searchButton = document.getElementById('search-button');
+                let searchContainer = document.getElementById('search-container');
+    
+                loginButton.addEventListener('click', async () => {
+                await criarRequestToken();
+                await logar();
+                await criarSessao();
+                })
+    
+                searchButton.addEventListener('click', async () => {
+                let lista = document.getElementById("lista");
+                if (lista) {
+                    lista.outerHTML = "";
+                }
+                let query = document.getElementById('search').value;
+                let listaDeFilmes = await procurarFilme(query);
+                let ul = document.createElement('ul');
+                ul.id = "lista"
+                for (const item of listaDeFilmes.results) {
+                    let li = document.createElement('li');
+                    li.appendChild(document.createTextNode(item.original_title))
+                    ul.appendChild(li)
+                }
+                console.log(listaDeFilmes);
+                searchContainer.appendChild(ul);
+                })
+    
+                function preencherSenha() {
+                password = document.getElementById('senha').value;
+                validateLoginButton();
+                }
+    
+                function preencherLogin() {
+                username =  document.getElementById('login').value;
+                validateLoginButton();
+                }
+    
+                function preencherApi() {
+                apiKey = document.getElementById('api-key').value;
+                validateLoginButton();
+                }
+    
+                function validateLoginButton() {
+                if (password && username && apiKey) {
+                    loginButton.disabled = false;
+                } else {
+                    loginButton.disabled = true;
+                }
+                }
+    
+                class HttpClient {
+                static async get({url, method, body = null}) {
+                    return new Promise((resolve, reject) => {
+                    let request = new XMLHttpRequest();
+                    request.open(method, url, true);
+    
+                    request.onload = () => {
+                        if (request.status >= 200 && request.status < 300) {
+                        resolve(JSON.parse(request.responseText));
+                        } else {
+                        reject({
+                            status: request.status,
+                            statusText: request.statusText
+                        })
+                        }
+                    }
+                    request.onerror = () => {
+                        reject({
+                        status: request.status,
+                        statusText: request.statusText
+                        })
+                    }
+    
+                    if (body) {
+                        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                        body = JSON.stringify(body);
+                    }
+                    request.send(body);
+                    })
+                }
+                }
+    
+                apiKey = apiKeys;
+    
+                async function procurarFilme(query) {
+                query = encodeURI(query)
+                console.log(query)
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`,
+                    method: "GET"
+                })
+                return result
+                }
+    
+                async function adicionarFilme(filmeId) {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/movie/${filmeId}?api_key=${apiKey}&language=en-US`,
+                    method: "GET"
+                })
+                console.log(result);
+                }
+    
+                async function criarRequestToken () {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`,
+                    method: "GET"
+                })
+                requestToken = result.request_token
+                }
+    
+                async function logar() {
+                await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${apiKey}`,
+                    method: "POST",
+                    body: {
+                    username: `${username}`,
+                    password: `${password}`,
+                    request_token: `${requestToken}`
+                    }
+                })
+                }
+    
+                async function criarSessao() {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/authentication/session/new?api_key=${apiKey}&request_token=${requestToken}`,
+                    method: "GET"
+                })
+                sessionId = result.session_id;
+                }
+    
+                async function criarLista(nomeDaLista, descricao) {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/list?api_key=${apiKey}&session_id=${sessionId}`,
+                    method: "POST",
+                    body: {
+                    name: nomeDaLista,
+                    description: descricao,
+                    language: "pt-br"
+                    }
+                })
+                console.log(result);
+                }
+    
+                async function adicionarFilmeNaLista(filmeId, listaId) {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/list/${listaId}/add_item?api_key=${apiKey}&session_id=${sessionId}`,
+                    method: "POST",
+                    body: {
+                    media_id: filmeId
+                    }
+                })
+                console.log(result);
+                }
+    
+                async function pegarLista() {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}`,
+                    method: "GET"
+                })
+                console.log(result);
+                }
+            </p>
+           </div>
+        </span>
+
+        <h2>Resposta</h2>
+
+        <span class="content_space">
+           
+           <div class="resposta">
+            <p>
+                var apiKeys = 'cf0a1af050ad8e486ccb2f04d51309a6';
+                let apiKey;
+                let requestToken;
+                let username;
+                let password;
+                let sessionId;
+                let listId = '7101979';
+    
+                let loginButton = document.getElementById('login-button');
+                let searchButton = document.getElementById('search-button');
+                let searchContainer = document.getElementById('search-container');
+    
+                loginButton.addEventListener('click', async () => {
+                await criarRequestToken();
+                await logar();
+                await criarSessao();
+                })
+    
+                searchButton.addEventListener('click', async () => {
+                let lista = document.getElementById("lista");
+                if (lista) {
+                    lista.outerHTML = "";
+                }
+                let query = document.getElementById('search').value;
+                let listaDeFilmes = await procurarFilme(query);
+                let ul = document.createElement('ul');
+                ul.id = "lista"
+                for (const item of listaDeFilmes.results) {
+                    let li = document.createElement('li');
+                    li.appendChild(document.createTextNode(item.original_title))
+                    ul.appendChild(li)
+                }
+                console.log(listaDeFilmes);
+                searchContainer.appendChild(ul);
+                })
+    
+                function preencherSenha() {
+                password = document.getElementById('senha').value;
+                validateLoginButton();
+                }
+    
+                function preencherLogin() {
+                username =  document.getElementById('login').value;
+                validateLoginButton();
+                }
+    
+                function preencherApi() {
+                apiKey = document.getElementById('api-key').value;
+                validateLoginButton();
+                }
+    
+                function validateLoginButton() {
+                if (password && username && apiKey) {
+                    loginButton.disabled = false;
+                } else {
+                    loginButton.disabled = true;
+                }
+                }
+    
+                class HttpClient {
+                static async get({url, method, body = null}) {
+                    return new Promise((resolve, reject) => {
+                    let request = new XMLHttpRequest();
+                    request.open(method, url, true);
+    
+                    request.onload = () => {
+                        if (request.status >= 200 && request.status < 300) {
+                        resolve(JSON.parse(request.responseText));
+                        } else {
+                        reject({
+                            status: request.status,
+                            statusText: request.statusText
+                        })
+                        }
+                    }
+                    request.onerror = () => {
+                        reject({
+                        status: request.status,
+                        statusText: request.statusText
+                        })
+                    }
+    
+                    if (body) {
+                        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                        body = JSON.stringify(body);
+                    }
+                    request.send(body);
+                    })
+                }
+                }
+    
+                apiKey = apiKeys;
+    
+                async function procurarFilme(query) {
+                query = encodeURI(query)
+                console.log(query)
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`,
+                    method: "GET"
+                })
+                return result
+                }
+    
+                async function adicionarFilme(filmeId) {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/movie/${filmeId}?api_key=${apiKey}&language=en-US`,
+                    method: "GET"
+                })
+                console.log(result);
+                }
+    
+                async function criarRequestToken () {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`,
+                    method: "GET"
+                })
+                requestToken = result.request_token
+                }
+    
+                async function logar() {
+                await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${apiKey}`,
+                    method: "POST",
+                    body: {
+                    username: `${username}`,
+                    password: `${password}`,
+                    request_token: `${requestToken}`
+                    }
+                })
+                }
+    
+                async function criarSessao() {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/authentication/session/new?api_key=${apiKey}&request_token=${requestToken}`,
+                    method: "GET"
+                })
+                sessionId = result.session_id;
+                }
+    
+                async function criarLista(nomeDaLista, descricao) {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/list?api_key=${apiKey}&session_id=${sessionId}`,
+                    method: "POST",
+                    body: {
+                    name: nomeDaLista,
+                    description: descricao,
+                    language: "pt-br"
+                    }
+                })
+                console.log(result);
+                }
+    
+                async function adicionarFilmeNaLista(filmeId, listaId) {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/list/${listaId}/add_item?api_key=${apiKey}&session_id=${sessionId}`,
+                    method: "POST",
+                    body: {
+                    media_id: filmeId
+                    }
+                })
+                console.log(result);
+                }
+    
+                async function pegarLista() {
+                let result = await HttpClient.get({
+                    url: `https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}`,
+                    method: "GET"
+                })
+                console.log(result);
+                }
+            </p>
+           </div>
+        </span>
+
+        <h2>Exemplo Funcionando</h2>
+        <div style="display: flex;">
+            <div style="display: flex; width: 300px; height: 100px; justify-content: space-between; flex-direction: column;">
+                <input id="login" placeholder="Login" onchange="preencherLogin(event)">
+                <input id="senha" placeholder="Senha" type="password" onchange="preencherSenha(event)">
+                <input id="api-key" placeholder="Api Key" onchange="preencherApi()">
+                <button id="login-button" disabled>Login</button>
+            </div>
+            <div id="search-container" style="margin-left: 20px">
+                <input id="search" placeholder="Escreva...">
+                <button id="search-button">Pesquisar Filme</button>
+            </div>
+          </div>
+
+    </section>
+    
+</body>
+<script src="./src/respostas/resposta3.ts" defer></script>
+<script src="./src/respostas/resposta4.ts" defer></script>
+</html>
