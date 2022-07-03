@@ -31,6 +31,7 @@ function limparSaldo() {
     if (campoSaldo) {
         saldoTotal = 0;
         campoSaldo.innerHTML = saldoTotal.toString();
+        console.log("Clicou em Limpa saldo");
     }
 }
 

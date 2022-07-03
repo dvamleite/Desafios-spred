@@ -13,10 +13,12 @@ function somarAoSaldo(soma) {
 
 function limparSaldo() {
     campoSaldo.innerHTML = '';
+    console.log("Clicou em Limpa saldo");
 }
 
 botaoAtualizar.addEventListener('click', function () {
     somarAoSaldo(soma.value);
+    console.log("Clicou em Atualizar saldo");
 });
 
 botaoLimpar.addEventListener('click', function () {
