@@ -1,6 +1,6 @@
 # Introducao-Pratica-ao-TypeScript-DIO
 
-<https://dvamleite.github.io/Introducao-Pratica-ao-TypeScript-DIO/>
+<a href="https://dvamleite.github.io/Introducao-Pratica-ao-TypeScript-DIO/" target="blanck"/>
 
 # Aula de Typescript da Take na plataforma DIO
   
